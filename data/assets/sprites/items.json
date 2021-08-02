@@ -1,0 +1,72 @@
+{ "weapon": {
+    "pistol": {
+     "image": { "x": 0, "y": 0, "w": 16, "h": 48 },
+     "icon": { "x": 64, "y": 0, "w": 48, "h": 48 },
+     "ammo": { "x": 128, "y": 0, "w": 48, "h": 48 },
+     "name": "pistol",
+     "type": "weapon",
+     "code": "0000",
+     "description": "",
+     "klasa": ""
+    },
+    "shotgun": {
+     "image": { "x": 0, "y": 64, "w": 16, "h": 48 },
+     "icon": { "x": 64, "y": 64, "w": 48, "h": 48 },
+     "ammo": { "x": 128, "y": 64, "w": 48, "h": 48 },
+     "name": "shotgun",
+     "type": "weapon",
+     "code": "0001",
+     "description": "",
+     "klasa": ""
+    },
+    "uzi": {
+     "image": { "x": 0, "y": 128, "w": 16, "h": 48 },
+     "icon": { "x": 64, "y": 128, "w": 48, "h": 48 },
+     "ammo": { "x": 128, "y": 128, "w": 48, "h": 48 },
+     "name": "uzi",
+     "type": "weapon",
+     "code": "0002",
+     "description": "",
+     "klasa": ""
+    }
+  },
+  "item": {
+   "pistol_ammo": {
+    "icon": { "x": 128, "y": 0, "w": 48, "h": 48 },
+    "name": "pistol_ammo",
+    "type": "ammo",
+    "code": "0010",
+    "description": "",
+    "klasa": ""
+   },
+   "shotgun_ammo": {
+    "icon": { "x": 128, "y": 64, "w": 48, "h": 48 },
+    "name": "shotgun_ammo",
+    "type": "ammo",
+    "code": "0011",
+    "description": "",
+    "klasa": ""
+   },
+   "uzi_ammo": {
+    "icon": { "x": 128, "y": 128, "w": 48, "h": 48 },
+    "name": "uzi_ammo",
+    "type": "ammo",
+    "code": "0012",
+    "description": "",
+    "klasa": ""
+   },
+   "meat": {
+    "icon": { "x": 0, "y": 196, "w": 48, "h": 48 },
+    "name": "meat",
+    "type": "consumable",
+    "code": "0099",
+    "description": "raw human meat",
+    "klasa": ""
+   }
+  },
+  "furniture": {
+   "chest": {
+    "image": { "x": 0, "y": 256, "w": 48, "h": 48 }
+   }
+  }
+}
