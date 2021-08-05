@@ -19,6 +19,10 @@
   "e_level_0": {
     "borders": [0, 0, 1, 0],
     "camera": "static"
+  },
+  "m_level_0": {
+    "borders": [0, 0, 0, 0],
+    "camera": "static"
   }
 }
 }

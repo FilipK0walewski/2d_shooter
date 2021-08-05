@@ -1,1 +1,1 @@
-{"_comment": "some game info", "resolutions": ["1280x720", "1366x768", "1536x864", "1440x900", "1600x900", "1680x1050", "1920x1080", "3840x2160"], "fps": [26, 30, 60, 75, 120, 144], "game": {"screen": {"resolution": "1920x1080", "fullscreen": 1}}}
+{"_comment": "some game info", "resolutions": ["1280x720", "1366x768", "1536x864", "1440x900", "1600x900", "1680x1050", "1920x1080", "3840x2160"], "fps": [26, 30, 60, 75, 120, 144], "game": {"screen": {"resolution": "1280x720", "fullscreen": 0}}}

@@ -1,4 +1,4 @@
-from data.game import Game
+from data.game import Game, read_border
 from data.characters import Human, Enemy
 from data.images import Spritesheet
 from data.furnitures import Storage
@@ -76,7 +76,7 @@ class EndlessMode(Game):
         self.distance_x = 0
 
         # test
-        print(self.canvas_w)
+        # print(self.canvas_w)
 
         # laser
         self.laser = False
@@ -195,28 +195,3 @@ class EndlessMode(Game):
 
         self.current_level['dist'] = [0, self.canvas_w]
         self.laser = False
-
-
-def read_border(border, map_w, map_h):
-    new_border = []
-    if border[0] == 0:
-        new_border.append(-1)
-    elif border[0] == 1:
-        new_border.append(192)
-
-    if border[1] == 0:
-        new_border.append(-1)
-    elif border[1] == 1:
-        new_border.append(map_h - 192)
-
-    if border[2] == 0:
-        new_border.append(-1)
-    elif border[2] == 1:
-        new_border.append(192)
-
-    if border[3] == 0:
-        new_border.append(-1)
-    elif border[3] == 1:
-        new_border.append(map_w - 192)
-
-    return new_border

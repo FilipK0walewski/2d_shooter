@@ -75,11 +75,12 @@ class MainMenu(Menu):
         title = TextLabel('MAIN MENU', (self.size[0] * .5, self.size[1] * .2), 96)
         new_game_button = Button('NORMAL GAME', (self.size[0] * .5, self.size[1] * .38), 48, on_click=self.new_game)
         e_game_button = Button('ENDLESS MODE', (self.size[0] * .5, self.size[1] * .45), 48, on_click=self.endless_game)
-        settings_button = Button('SETTINGS', (self.size[0] * .5, self.size[1] * .52), 48, on_click=self.settings)
-        credits_button = Button('CREDITS', (self.size[0] * .5, self.size[1] * .59), 48, on_click=self.credits)
+        m_game_button = Button('MULTIPLAYER', (self.size[0] * .5, self.size[1] * .52), 48, on_click=self.multiplayer_mode)
+        settings_button = Button('SETTINGS', (self.size[0] * .5, self.size[1] * .59), 48, on_click=self.settings)
+        credits_button = Button('CREDITS', (self.size[0] * .5, self.size[1] * .66), 48, on_click=self.credits)
         exit_button = Button('EXIT', (self.size[0] * .5, self.size[1] * .8), 48, on_click=self.exit_game)
 
-        self.buttons.extend([title, new_game_button, e_game_button, settings_button, credits_button, exit_button])
+        self.buttons.extend([title, new_game_button, e_game_button, m_game_button, settings_button, credits_button, exit_button])
 
     def new_game(self):
         self.menager.game = self.menager.normal_mode
@@ -91,6 +92,12 @@ class MainMenu(Menu):
         self.menager.game = self.menager.endless_mode
         self.menager.game.playing = True
         self.menager.current_menu = self.menager.pause_menu
+        self.display_menu = False
+
+    def multiplayer_mode(self):
+        self.menager.game = self.menager.multiplayer_mode
+        self.menager.game.playing = True
+        self.menager.current_meny = self.menager.pause_menu
         self.display_menu = False
 
     def settings(self):

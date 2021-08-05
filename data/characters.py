@@ -14,7 +14,7 @@ f.close()
 
 class Human(pg.sprite.Sprite):
 
-    def __init__(self, pos):
+    def __init__(self, pos, temp_id=0):
         pg.sprite.Sprite.__init__(self)
 
         spritesheet = Spritesheet('data/assets/sprites/characters.png')
@@ -61,6 +61,32 @@ class Human(pg.sprite.Sprite):
         self.last_angle = None
         self.death_time = 0
         self.hp = 100
+
+        # multiplayer mode
+        self.temp_id = temp_id
+        self.return_angle = 0
+        self.online = False
+
+    # multiplayer mode
+    def get_data_for_server(self):
+        info = {
+            'x': self.rect.x,
+            'y': self.rect.y,
+            'weapon_0': 'fist',
+            'weapon_1': 'fist',
+            'dead': self.dead,
+            'angle': self.return_angle,
+            'id': self.temp_id,
+        }
+        return info
+
+    def update_data(self, new_data):
+        self.rect.x = new_data['x']
+        self.rect.y = new_data['y']
+        self.return_angle = new_data['return_angle']
+
+
+    #############################################################################################################################################
 
     def draw(self, display, camera, dist=0):
 
@@ -167,6 +193,7 @@ class Human(pg.sprite.Sprite):
         delta_y = point[1] - self.rect.center[1]
         radians = math.atan2(delta_y, delta_x)
         angle = -(radians * 180) / math.pi - 90
+        self.return_angle = angle
 
         x_0 = self.rect.center[0] + math.cos(radians - math.pi * .5) * 32
         y_0 = self.rect.center[1] + math.sin(radians - math.pi * .5) * 32
@@ -465,25 +492,28 @@ class NPC(Human):
         self.backpack = NPCEquipment()
         self.backpack_visible = False
 
-        s_0 = pg.mixer.Sound('data/sounds/artur/jestem_artur.mp3')
-        s_1 = pg.mixer.Sound('data/sounds/artur/artur_opis_0.mp3')
-        s_2 = pg.mixer.Sound('data/sounds/artur/artur_opis_1.mp3')
-        narazie = pg.mixer.Sound('data/sounds/artur/narazie.mp3')
-        dobra = pg.mixer.Sound('data/sounds/artur/dobra.mp3')
+        # s_0 = pg.mixer.Sound('data/sounds/artur/jestem_artur.mp3')
+        # s_1 = pg.mixer.Sound('data/sounds/artur/artur_opis_0.mp3')
+        # s_2 = pg.mixer.Sound('data/sounds/artur/artur_opis_1.mp3')
+        # narazie = pg.mixer.Sound('data/sounds/artur/narazie.mp3')
+        # dobra = pg.mixer.Sound('data/sounds/artur/dobra.mp3')
 
-        s_0.set_volume(.5)
+        # s_0.set_volume(.5)
 
         # talk
         self.quotes = {'Who are you?': {'quote': ['My name is Arthur', 'I am an elder man, 180cm height, 85kg of body weight', '15cm dick, small, weak'],
                                         'key': 'text',
-                                        'sound': [s_0, s_1, s_2]},
+                                        # 'sound': [s_0, s_1, s_2]
+                                        },
 
                        'Show me your wares': {'quote': ['Take a quick look'],
                                               'key': 'shop',
-                                              'sound': [dobra]},
+                                            #   'sound': [dobra]
+                                            },
                        'Goodbye': {'quote': ['See ya'],
                                    'key': 'exit',
-                                   'sound': [narazie]}
+                                #    'sound': [narazie]
+                                }
                        }
         self.dialogue = DialogueWindow(self.quotes)
 

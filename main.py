@@ -2,6 +2,7 @@ from data.game import Game
 from data.menu import MainMenu, PauseMenu, SettingsMenu, CreditsMenu, GraphicsMenu, AudioMenu, ControlsMenu
 from data.launcher import GameLauncher
 from data.endless_mode import EndlessMode
+from data.multiplayer_mode import MultiplayerMode
 import pygame as pg
 import json
 
@@ -42,6 +43,7 @@ class Menager:
         # game modes
         self.normal_mode = Game(window)
         self.endless_mode = EndlessMode(window)
+        self.multiplayer_mode = MultiplayerMode(window)
         self.game = self.normal_mode
         # menus
         self.main_menu = MainMenu(window, self)

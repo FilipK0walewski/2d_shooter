@@ -28,9 +28,12 @@ class TileMap:
         if mode == 'normal':
             floor_path = 'data/maps/floor_' + str(level) + '.csv'
             wall_path = 'data/maps/wall_' + str(level) + '.csv'
-        else:
+        elif mode == 'endless':
             floor_path = 'data/maps/e_floor_' + str(level) + '.csv'
             wall_path = 'data/maps/e_wall_' + str(level) + '.csv'
+        elif mode == 'multiplayer':
+            floor_path = 'data/maps/floor_' + str(level) + '.csv'
+            wall_path = 'data/maps/wall_' + str(level) + '.csv'
 
         self.tile_size = 64
         self.start_x, self.start_y = 0, 0
