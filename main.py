@@ -43,7 +43,7 @@ class Menager:
         # game modes
         self.normal_mode = Game(window)
         self.endless_mode = EndlessMode(window)
-        self.multiplayer_mode = MultiplayerMode(window)
+        # self.multiplayer_mode = MultiplayerMode(window)
         self.game = self.normal_mode
         # menus
         self.main_menu = MainMenu(window, self)
